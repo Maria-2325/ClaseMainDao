@@ -6,15 +6,9 @@ import com.mycompany.personaclass.Persona;
 public interface PersonaDao {
 
     // Métodos de la clase Persona Dao
-    public void agregarPersona(Persona persona);
-
-    public void modificarPersona(int id); 
-
-    public void eliminar(int id);
-
-    public void imprimir(Persona persona);
-    public Persona[] obtenerDatos();
-    
-    
-
+    void agregarPersona(Persona persona);
+    void modificarPersona(int id, Persona personaModificada); 
+    void eliminarPersona(int id);
+    Persona[] obtenerDatosPersonas();
+    void imprimirPersonas();
 }

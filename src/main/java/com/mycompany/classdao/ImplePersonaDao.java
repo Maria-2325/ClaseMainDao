@@ -11,10 +11,11 @@ public class ImplePersonaDao implements PersonaDao {
     Persona[] personas = new Persona[3];
 
     @Override
+    // AGREGAR PERSONAS AL CURSO
     public void agregarPersona(Persona persona) {
         System.out.println("Agregando personas...");
 
-        if (contador > personas.length) {
+        if (contador < personas.length) {
             persona.setId(idContador++);
             personas[contador++] = persona;
         } else {
@@ -23,36 +24,69 @@ public class ImplePersonaDao implements PersonaDao {
     }
 
     @Override
-    public void modificarPersona(int id) {
-
-    }
-
-    @Override
-    public void eliminar(int id) {
-        personas[id] = null;
-    }
-
-    @Override
-    public void imprimir(Persona persona) {
-
+    // MODIFICAR PERSONAS DEL CURSO
+    public void modificarPersona(int id, Persona personaModificada) {
         for (int i = 0; i < contador; i++) {
-            
+            if (personas[i] != null && personas[i].getId() == id) {
+                personaModificada.setId(id);
+                personas[i]= personaModificada;
+                break;
+            }
+        }
+    }
+
+    @Override
+    // ELIMINAR PERSONAS DEL CURSO
+    public void eliminarPersona(int id) {
+        for (int i = 0; i < contador; i++) {
+            if (personas[i] != null && personas[i].getId() == id) {
+                personas[i] = null;
+                break;
+            }
+        }
+    }
+
+    @Override
+    public Persona[] obtenerDatosPersonas() {
+
+        int cantidadPersonas = 0;
+        for (int i = 0; i < personas.length; i++) {
+            if (personas[i] != null) {
+                cantidadPersonas++;
+            }
+        }
+
+        Persona[] totalPersonas = new Persona[cantidadPersonas];
+
+        int indicePersona = 0;
+        for (int i = 0; i < personas.length; i++) {
+            if (personas[i] != null) {
+                totalPersonas[indicePersona] = personas[i];
+                indicePersona++;
+            }
+        }
+        return totalPersonas;
+    }
+
+    @Override
+    // IMPRIMIR DATOS DE LAS PERSONAS
+    public void imprimirPersonas() {
+
+        Persona[] mostrarPersonas = obtenerDatosPersonas();
+        for (int i = 0; i < mostrarPersonas.length; i++) {
+
+            Persona varPersona = mostrarPersonas[i];
+            if (varPersona != null) {
+                System.out.println("Id: " + varPersona.getId());
+                System.out.println("Nombre: " + varPersona.getNombre());
+                System.out.println("Cedula: " + varPersona.getCedula());
+                System.out.println("Correo: " + varPersona.getCorreo());
+                System.out.println("Genero: " + varPersona.getGenero());
+                System.out.println("Edad: " + varPersona.getEdad());
+            }
             // personas [persona1(nombre,edad), persona2(nombre,edad)]
-            System.out.println("Persona: " + (i + 1));
-            System.out.println("Nombre: " + personas[i].getNombre());
-            System.out.println("Cedula: " + personas[i].getCedula());
-            System.out.println("Correo: " + personas[i].getCorreo());
-            System.out.println("Genero: " + personas[i].getGenero());
-            System.out.println("Edad: " + personas[i].getEdad());
+
         }
     }
-    
-    public Persona[] obtenerDatos(){
-        Persona[] resultado = new Persona[contador];
-        
-        for (int i = 0; i < contador; i++){
-            resultado[i] = personas[i];
-        }
-        return resultado;
-    }
+
 }
