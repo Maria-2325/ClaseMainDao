@@ -10,5 +10,4 @@ public interface PersonaDao {
     void modificarPersona(int id, Persona personaModificada); 
     void eliminarPersona(int id);
     Persona[] obtenerDatosPersonas();
-    void imprimirPersonas();
 }

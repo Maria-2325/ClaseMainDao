@@ -68,25 +68,5 @@ public class ImplePersonaDao implements PersonaDao {
         return totalPersonas;
     }
 
-    @Override
-    // IMPRIMIR DATOS DE LAS PERSONAS
-    public void imprimirPersonas() {
-
-        Persona[] mostrarPersonas = obtenerDatosPersonas();
-        for (int i = 0; i < mostrarPersonas.length; i++) {
-
-            Persona varPersona = mostrarPersonas[i];
-            if (varPersona != null) {
-                System.out.println("Id: " + varPersona.getId());
-                System.out.println("Nombre: " + varPersona.getNombre());
-                System.out.println("Cedula: " + varPersona.getCedula());
-                System.out.println("Correo: " + varPersona.getCorreo());
-                System.out.println("Genero: " + varPersona.getGenero());
-                System.out.println("Edad: " + varPersona.getEdad());
-            }
-            // personas [persona1(nombre,edad), persona2(nombre,edad)]
-
-        }
-    }
 
 }
