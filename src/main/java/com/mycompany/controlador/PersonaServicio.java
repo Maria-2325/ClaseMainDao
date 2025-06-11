@@ -1,6 +1,7 @@
 package com.mycompany.controlador;
 
-import com.mycompany.classdao.*;
+
+import com.mycompany.interfazdao.PersonaDao;
 import com.mycompany.personaclass.Persona;;;
 
 public class PersonaServicio {

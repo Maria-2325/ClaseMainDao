@@ -1,4 +1,4 @@
-package com.mycompany.classdao;
+package com.mycompany.interfazdao;
 
 import com.mycompany.personaclass.Persona;
 

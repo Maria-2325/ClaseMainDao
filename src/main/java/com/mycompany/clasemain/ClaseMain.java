@@ -1,9 +1,10 @@
 
 package com.mycompany.clasemain;
 
-import com.mycompany.classdao.*;
 import com.mycompany.personaclass.Persona;
 import com.mycompany.controlador.PersonaServicio;
+import com.mycompany.implementaciondao.*;
+import com.mycompany.interfazdao.PersonaDao;
 
 public class ClaseMain {
 

@@ -1,5 +1,6 @@
-package com.mycompany.classdao;
+package com.mycompany.implementaciondao;
 
+import com.mycompany.interfazdao.PersonaDao;
 import com.mycompany.personaclass.Persona;
 
 public class ImplePersonaDao implements PersonaDao {
